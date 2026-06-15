@@ -49,7 +49,6 @@ class RAGBase:
             boost_dict=boost_dict,
             filter_dict=filter_dict
         )
-    
     # The build context method takes the search results and builds the context.
     def build_context(self, search_results):
         lines = []
@@ -78,7 +77,7 @@ class RAGBase:
 
         response = self.llm_client.chat.completions.create(
             model=self.model,
-            messages=input_messages
+            messages=input_messages,
         )
 
         return response.choices[0].message.content
@@ -89,3 +88,17 @@ class RAGBase:
         prompt = self.build_prompt(query, search_results)
         answer = self.llm(prompt)
         return answer
+
+
+# Function Calling - lesson 13
+# In the previous lesson we built a RAG pipeline with RAGBase.rag() and saw it fail on the "Olama" typo. The search returned nothing useful, and the LLM had no way to recover.
+
+# The pipeline is fixed: search, build prompt, LLM.
+
+# def rag(self, query):
+#     search_results = self.search(query)
+#     prompt = self.build_prompt(query, search_results)
+#     answer = self.llm(prompt)
+#     return answer
+
+# The LLM is a passenger here, not a driver. It never sees the bad search results, so it can't try again with a corrected query.
