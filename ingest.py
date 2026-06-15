@@ -28,3 +28,14 @@ def build_index(documents):
     )
     index.fit(documents)
     return index
+
+
+
+
+
+# # PERSONAL RESEARCH
+
+# An index is a data structure used to speed up the retrieval of information. It works exactly like the index at the back of a textbook: instead of reading every page to find a topic, you look up the topic in the index to find the exact page number
+
+
+# A persistent search index typically refers to a search index that is stored on a non-volatile medium (like a hard drive or SSD) rather than strictly in volatile memory (RAM). This ensures that your indexed data is preserved even if the system reboots or loses power, making retrieval both durable and efficient
