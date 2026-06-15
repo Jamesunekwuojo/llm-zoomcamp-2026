@@ -1,3 +1,6 @@
+# This file contains the RAG logic, for now it only implements the base RAG.
+# The eval package will be implemented later.
+
 INSTRUCTIONS = """
 Your task is to answer questions from the course participants
 based on the provided context.
